@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'prise/style.css' %}">
+  
+    <title>Prise intelligente</title>
+</head>
+<body>
+  <p id='rouge' class='titre'>Prise intelligente</p>
+  <p class='titre'> Led 1 et 2 </p>
+  <div class="mid">
+    
+    <form action="Led" method="POST">
+      {% csrf_token %}
+        <button type="submit" name="action" value='ONTOUT'>ON</button>
+    </form>
+
+    <label class="rocker">
+  
+      <input type="checkbox" checked>
+      <span class="switch-left">On</span>
+      <span class="switch-right">Off</span>
+    </label>
+    <form action="Led" method="POST">
+      {% csrf_token %}
+        <button type="submit" name='action' value='OFFTOUT'>OFF</button>
+    </form>
+  </div>
+  <div class="mid">
+    <p class='titre'> Led 1 </p>
+    <form action="Led" method="POST">
+      {% csrf_token %}
+        <button type="submit" name='action' value='ON'>ON</button>
+    </form>
+    <label class="rocker rocker-small">
+      <input type="checkbox">
+      <span class="switch-left">On</span>
+      <span class="switch-right">Off</span>
+    </label>
+    <form action="Led" method="POST">
+      {% csrf_token %}
+        <button type="submit" name='action' value='OFF'>OFF</button>
+    </form>
+    <p class='titre'> Led 2 </p>
+    <form action="Led" method="POST">
+      {% csrf_token %}
+        <button type="submit" name='action' value='ON2'>ON</button>
+    </form>    
+    <label class="rocker rocker-small">
+      <input type="checkbox">
+      <span class="switch-left">On</span>
+      <span class="switch-right">OFF</span>
+    </label>
+    <form action="Led" method="POST">
+      {% csrf_token %}
+        <button type="submit" name='action' value='OFF2'>OFF</button>
+    </form>
+  
+  </div>
+</body>
+</html>
+
+
